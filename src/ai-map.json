@@ -1,27 +1,132 @@
 {
-  "version": 1,
-  "purpose": "Stable, non-visual metadata for AI-assisted LP maintenance. Keep semantic labels conservative; refine them as sections are reviewed.",
+  "version": 2,
+  "purpose": "Stable, non-visual metadata for AI-assisted LP maintenance. Labels are based on the actual LP headings/content and are intended to let AI target the correct section without touching visual geometry.",
   "sections": {
-    "section-01.html": {"section_id": "page-1-section-1", "ai_name": "section-01", "ai_role": "mechanism"},
-    "section-02.html": {"section_id": "page-1-section-2", "ai_name": "section-02", "ai_role": "content"},
-    "section-03.html": {"section_id": "page-1-section-3", "ai_name": "first-cta-part-1", "ai_role": "cta"},
-    "section-04.html": {"section_id": "page-1-section-4", "ai_name": "first-cta-part-2", "ai_role": "cta"},
-    "section-05.html": {"section_id": "page-1-section-5", "ai_name": "section-05", "ai_role": "content"},
-    "section-06.html": {"section_id": "page-1-section-6", "ai_name": "section-06", "ai_role": "content"},
-    "section-07.html": {"section_id": "page-1-section-7", "ai_name": "section-07", "ai_role": "content"},
-    "section-08.html": {"section_id": "page-1-section-8", "ai_name": "section-08", "ai_role": "content"},
-    "section-09.html": {"section_id": "page-1-section-9", "ai_name": "section-09", "ai_role": "content"},
-    "section-10.html": {"section_id": "page-1-section-10", "ai_name": "section-10", "ai_role": "content"},
-    "section-11.html": {"section_id": "page-1-section-11", "ai_name": "section-11", "ai_role": "content"},
-    "section-12.html": {"section_id": "page-1-section-12", "ai_name": "section-12", "ai_role": "content"},
-    "section-13.html": {"section_id": "page-1-section-13", "ai_name": "section-13", "ai_role": "content"},
-    "section-14.html": {"section_id": "page-1-section-14", "ai_name": "section-14", "ai_role": "content"},
-    "section-15.html": {"section_id": "page-1-section-15", "ai_name": "section-15", "ai_role": "content"},
-    "section-16.html": {"section_id": "page-1-section-16", "ai_name": "section-16", "ai_role": "content"},
-    "section-17.html": {"section_id": "page-1-section-17", "ai_name": "section-17", "ai_role": "content"},
-    "section-18.html": {"section_id": "page-1-section-18", "ai_name": "section-18", "ai_role": "content"},
-    "section-19.html": {"section_id": "page-1-section-19", "ai_name": "final-cta-part-1", "ai_role": "cta"},
-    "section-20.html": {"section_id": "page-1-section-20", "ai_name": "final-cta-part-2", "ai_role": "cta"},
-    "section-21.html": {"section_id": "page-1-section-21", "ai_name": "section-21", "ai_role": "content"}
+    "section-01.html": {
+      "section_id": "page-1-section-1",
+      "ai_name": "happiness-activity-rescue-cat-project",
+      "ai_role": "social-impact-intro",
+      "summary": "しあわせ活動／保護猫プロジェクト。毎日の水を選ぶことが保護活動の応援につながる導入。"
+    },
+    "section-02.html": {
+      "section_id": "page-1-section-2",
+      "ai_name": "water-and-giving-cycle",
+      "ai_role": "impact-mechanism",
+      "summary": "『おいしい水と、やさしい循環。』を軸に、商品購入と支援の循環を示す導入ブロック。"
+    },
+    "section-03.html": {
+      "section_id": "page-1-section-3",
+      "ai_name": "first-purchase-cta-natural-water",
+      "ai_role": "cta",
+      "summary": "最初の商品購入CTA前半。天然水の商品・定期購入導線。"
+    },
+    "section-04.html": {
+      "section_id": "page-1-section-4",
+      "ai_name": "first-purchase-cta-sparkling-and-transition",
+      "ai_role": "cta",
+      "summary": "最初の商品購入CTA後半。別商品・定期購入導線と『支援のためだけの水、』から商品価値説明へつなぐ部分。"
+    },
+    "section-05.html": {
+      "section_id": "page-1-section-5",
+      "ai_name": "why-choice-silica-mineral-richness",
+      "ai_role": "product-value",
+      "summary": "『支援のためだけの水ではありません。選ばれる理由は、ミネラルの豊かさ。』という商品価値の導入。"
+    },
+    "section-06.html": {
+      "section_id": "page-1-section-6",
+      "ai_name": "silica-age-related-decline",
+      "ai_role": "silica-education",
+      "summary": "シリカは体内に存在するが加齢とともに減少するとされること、食事や飲み物から補う重要性を示すグラフ説明。"
+    },
+    "section-07.html": {
+      "section_id": "page-1-section-7",
+      "ai_name": "natural-water-promise",
+      "ai_role": "product-benefit",
+      "summary": "『シリカを豊富に含んだ天然水。』とOUR PROMISE。毎日続けられるおいしさ・透明感を訴求。"
+    },
+    "section-08.html": {
+      "section_id": "page-1-section-8",
+      "ai_name": "natural-minerals-and-silica-75mg",
+      "ai_role": "product-feature",
+      "summary": "九重連山由来の自然なミネラル、天然シリカ75mg/L、肌・髪・爪にも含まれるシリカを説明。"
+    },
+    "section-09.html": {
+      "section_id": "page-1-section-9",
+      "ai_name": "kuju-source-and-natural-filtration",
+      "ai_role": "source-story",
+      "summary": "こだわりの採水地。九重連山の雨雪が地層を通って自然濾過され、ミネラルを含む伏流水になる流れを説明。"
+    },
+    "section-10.html": {
+      "section_id": "page-1-section-10",
+      "ai_name": "expert-column-water-and-minerals",
+      "ai_role": "expert-authority",
+      "summary": "Experts’ Columns。専門家視点で、水とシリカなどのミネラルの重要性を解説する導入。"
+    },
+    "section-11.html": {
+      "section_id": "page-1-section-11",
+      "ai_name": "daily-water-loss-and-hydration",
+      "ai_role": "health-education",
+      "summary": "呼吸・汗・尿などで日々失われる水分と、水分・ミネラル全般についての一般的な解説。"
+    },
+    "section-12.html": {
+      "section_id": "page-1-section-12",
+      "ai_name": "doctor-comment-and-visible-support-transition",
+      "ai_role": "expert-authority-transition",
+      "summary": "沼田光生医師の専門家パートから『毎日飲む水だから、無理なく続けられる応援に。そして、支援を見える形に。』へ接続。"
+    },
+    "section-13.html": {
+      "section_id": "page-1-section-13",
+      "ai_name": "support-purchase-cta",
+      "ai_role": "cta",
+      "summary": "保護猫キャラクターと『チョイスシリカを購入して応援する。』の支援購入CTA。"
+    },
+    "section-14.html": {
+      "section_id": "page-1-section-14",
+      "ai_name": "rescue-activities-behind-the-water",
+      "ai_role": "social-impact-detail",
+      "summary": "『この水の先に、こんな命があります。』保護・譲渡会・TNR・多頭飼育崩壊対応など活動内容を紹介。"
+    },
+    "section-15.html": {
+      "section_id": "page-1-section-15",
+      "ai_name": "what-one-bottle-supports",
+      "ai_role": "donation-use",
+      "summary": "『あなたの一本で支援するもの。』不妊去勢手術など、保護活動に必要な費用と現場の実情を説明。"
+    },
+    "section-16.html": {
+      "section_id": "page-1-section-16",
+      "ai_name": "support-costs-and-transparency",
+      "ai_role": "transparency",
+      "summary": "初期医療・フード・ノミダニ駆除・譲渡会運営などの支援先と、『支援を見える形に』する透明性の仕組み。弁護士監修を含む。"
+    },
+    "section-17.html": {
+      "section_id": "page-1-section-17",
+      "ai_name": "accounting-reporting-and-activity-results",
+      "ai_role": "transparency-reporting",
+      "summary": "会計事務所による確認、寄付額・使い道・活動成果のWEB公開、譲渡会・TNR実績報告。"
+    },
+    "section-18.html": {
+      "section_id": "page-1-section-18",
+      "ai_name": "gentle-support-closing-message",
+      "ai_role": "social-impact-closing",
+      "summary": "『いつもの水から、やさしい応援を。』一本が団体の来月をつくるという、支援ストーリーの締め。"
+    },
+    "section-19.html": {
+      "section_id": "page-1-section-19",
+      "ai_name": "final-purchase-cta-natural-water",
+      "ai_role": "cta",
+      "summary": "最終購入CTA前半。天然水の商品・定期購入導線。"
+    },
+    "section-20.html": {
+      "section_id": "page-1-section-20",
+      "ai_name": "final-purchase-cta-sparkling",
+      "ai_role": "cta",
+      "summary": "最終購入CTA後半。別商品・定期購入導線。"
+    },
+    "section-21.html": {
+      "section_id": "page-1-section-21",
+      "ai_name": "thank-you-footer",
+      "ai_role": "closing",
+      "summary": "『ご検討くださり、ありがとうございます。』で締める最終フッター。"
+    }
   }
 }
