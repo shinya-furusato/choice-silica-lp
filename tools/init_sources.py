@@ -127,7 +127,11 @@ When a source file is pushed to `main`, GitHub Actions rebuilds and commits `ind
 '''
 (ROOT / "SOURCE_WORKFLOW.md").write_text(guide, encoding="utf-8", newline="")
 
-exec(compile(build_script, str(BUILD / "build.py"), "exec"), {"__name__":"__main__"})
+build_globals = {
+    "__name__": "__main__",
+    "__file__": str(BUILD / "build.py"),
+}
+exec(compile(build_script, str(BUILD / "build.py"), "exec"), build_globals)
 rebuilt_bytes = INDEX.read_bytes()
 if rebuilt_bytes != original_bytes:
     raise RuntimeError(
