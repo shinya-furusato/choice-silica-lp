@@ -1,0 +1,10 @@
+
+/* CTA right-edge seam fix: extend the CTA SVG slightly past the section boundary. */
+[data-section-id="page-1-section-3"] > .lp-visual-layer,
+[data-section-id="page-1-section-4"] > .lp-visual-layer,
+[data-section-id="page-1-section-19"] > .lp-visual-layer,
+[data-section-id="page-1-section-20"] > .lp-visual-layer{
+  left:0 !important;
+  right:auto !important;
+  width:calc(100% + 2px) !important;
+}
