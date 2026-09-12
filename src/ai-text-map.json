@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "purpose": "Third-layer semantic anchors for pinpoint AI editing. Use these names after resolving the section with ai-map.json and the safe element type with ai-elements.json.",
+  "locator_policy": {
+    "text_contains": "Find the smallest heading/text pair inside the resolved section that contains this approved phrase. Update both SVG visible text and matching .lp-selection-text.",
+    "cta_link_index": "Use the generated data-ai-name on CTA links; change href/target/rel only unless copy or design changes are explicitly requested.",
+    "note": "These anchors are semantic locators, not layout instructions. Preserve Illustrator/PDF geometry by default."
+  },
+  "anchors": {
+    "happiness-activity-heading": {"section": "happiness-activity-rescue-cat-project", "type": "text", "text_contains": "しあわせ活動", "edit_policy": "paired-text-edit"},
+    "rescue-cat-project-heading": {"section": "happiness-activity-rescue-cat-project", "type": "text", "text_contains": "保護猫", "edit_policy": "paired-text-edit"},
+
+    "water-gentle-cycle-heading": {"section": "water-and-giving-cycle", "type": "text", "text_contains": "おいしい水と、", "edit_policy": "paired-text-edit"},
+    "water-gentle-cycle-subheading": {"section": "water-and-giving-cycle", "type": "text", "text_contains": "やさしい循環。", "edit_policy": "paired-text-edit"},
+
+    "first-natural-water-cta-link-1": {"section": "first-purchase-cta-natural-water", "type": "link", "selector": "[data-ai-name='first-purchase-cta-natural-water-link-1']", "edit_policy": "safe-attribute-edit"},
+    "first-sparkling-cta-link-1": {"section": "first-purchase-cta-sparkling-and-transition", "type": "link", "selector": "[data-ai-name='first-purchase-cta-sparkling-and-transition-link-1']", "edit_policy": "safe-attribute-edit"},
+    "support-only-water-transition-copy": {"section": "first-purchase-cta-sparkling-and-transition", "type": "text", "text_contains": "支援のためだけの水", "edit_policy": "paired-text-edit"},
+
+    "mineral-richness-heading": {"section": "why-choice-silica-mineral-richness", "type": "text", "text_contains": "選ばれる理由", "edit_policy": "paired-text-edit"},
+    "mineral-richness-keyword": {"section": "why-choice-silica-mineral-richness", "type": "text", "text_contains": "ミネラル", "edit_policy": "paired-text-edit"},
+
+    "silica-decline-heading": {"section": "silica-age-related-decline", "type": "text", "text_contains": "シリカ", "intent": "加齢によるシリカ減少を説明する見出し", "edit_policy": "paired-text-edit-high-risk"},
+    "silica-decline-body": {"section": "silica-age-related-decline", "type": "text", "intent": "加齢とともに減少すること、食事や飲み物から補うことを説明する本文", "edit_policy": "paired-text-edit-high-risk"},
+    "silica-decline-source": {"section": "silica-age-related-decline", "type": "citation", "intent": "加齢グラフ直下または周辺の出典表記", "edit_policy": "paired-text-edit-high-risk"},
+    "silica-decline-graph": {"section": "silica-age-related-decline", "type": "graphic", "intent": "加齢による減少を示すグラフ本体", "edit_policy": "protected-geometry"},
+
+    "natural-water-promise-heading": {"section": "natural-water-promise", "type": "text", "text_contains": "シリカを豊富に含んだ天然水", "edit_policy": "paired-text-edit"},
+    "our-promise-label": {"section": "natural-water-promise", "type": "text", "text_contains": "OUR PROMISE", "edit_policy": "paired-text-edit"},
+
+    "silica-75mg-claim": {"section": "natural-minerals-and-silica-75mg", "type": "quantitative-claim", "text_contains": "75mg", "edit_policy": "paired-text-edit-high-risk"},
+    "natural-minerals-copy": {"section": "natural-minerals-and-silica-75mg", "type": "text", "text_contains": "ミネラル", "edit_policy": "paired-text-edit"},
+    "skin-hair-nails-copy": {"section": "natural-minerals-and-silica-75mg", "type": "text", "intent": "肌・髪・爪にも含まれるシリカを説明するコピー", "edit_policy": "paired-text-edit-high-risk"},
+
+    "kuju-source-heading": {"section": "kuju-source-and-natural-filtration", "type": "text", "text_contains": "採水地", "edit_policy": "paired-text-edit"},
+    "kuju-mountains-copy": {"section": "kuju-source-and-natural-filtration", "type": "text", "text_contains": "九重連山", "edit_policy": "paired-text-edit"},
+    "natural-filtration-copy": {"section": "kuju-source-and-natural-filtration", "type": "text", "intent": "雨や雪が地層を通って自然濾過され伏流水になる説明", "edit_policy": "paired-text-edit"},
+
+    "experts-columns-heading": {"section": "expert-column-water-and-minerals", "type": "text", "text_contains": "Experts", "edit_policy": "paired-text-edit"},
+    "expert-water-minerals-copy": {"section": "expert-column-water-and-minerals", "type": "text", "intent": "専門家視点の水とミネラルの解説", "edit_policy": "paired-text-edit-high-risk"},
+
+    "body-water-ratio-claim": {"section": "daily-water-loss-and-hydration", "type": "quantitative-claim", "text_contains": "60%", "edit_policy": "paired-text-edit-high-risk"},
+    "daily-water-loss-claim": {"section": "daily-water-loss-and-hydration", "type": "quantitative-claim", "intent": "1日に身体から出ていく水分量の数値", "edit_policy": "paired-text-edit-high-risk"},
+    "hydration-explanation": {"section": "daily-water-loss-and-hydration", "type": "text", "intent": "呼吸・汗・尿などで失われる水分の説明", "edit_policy": "paired-text-edit-high-risk"},
+
+    "doctor-comment": {"section": "doctor-comment-and-visible-support-transition", "type": "expert-comment", "text_contains": "沼田", "edit_policy": "paired-text-edit-high-risk"},
+    "visible-support-transition-heading": {"section": "doctor-comment-and-visible-support-transition", "type": "text", "text_contains": "支援を見える形に", "edit_policy": "paired-text-edit"},
+
+    "support-purchase-cta-copy": {"section": "support-purchase-cta", "type": "text", "text_contains": "チョイスシリカを購入して応援する", "edit_policy": "paired-text-edit"},
+    "support-purchase-cta-link-1": {"section": "support-purchase-cta", "type": "link", "selector": "[data-ai-name='support-purchase-cta-link-1']", "edit_policy": "safe-attribute-edit"},
+
+    "lives-beyond-water-heading": {"section": "rescue-activities-behind-the-water", "type": "text", "text_contains": "この水の先に", "edit_policy": "paired-text-edit"},
+    "rescue-activity-list": {"section": "rescue-activities-behind-the-water", "type": "text-group", "intent": "保護・譲渡会・TNR・多頭飼育崩壊対応などの活動一覧", "edit_policy": "paired-text-edit"},
+
+    "one-bottle-support-heading": {"section": "what-one-bottle-supports", "type": "text", "text_contains": "あなたの一本", "edit_policy": "paired-text-edit"},
+    "spay-neuter-support-copy": {"section": "what-one-bottle-supports", "type": "text", "intent": "不妊去勢手術などの支援用途説明", "edit_policy": "paired-text-edit"},
+
+    "support-visibility-heading": {"section": "support-costs-and-transparency", "type": "text", "text_contains": "支援を見える形に", "edit_policy": "paired-text-edit"},
+    "lawyer-supervision-copy": {"section": "support-costs-and-transparency", "type": "legal-copy", "text_contains": "弁護士", "edit_policy": "paired-text-edit-high-risk"},
+    "support-cost-items": {"section": "support-costs-and-transparency", "type": "text-group", "intent": "初期医療・フード・ノミダニ駆除・譲渡会運営などの支援費目", "edit_policy": "paired-text-edit"},
+
+    "accounting-office-copy": {"section": "accounting-reporting-and-activity-results", "type": "institutional-copy", "text_contains": "会計事務所", "edit_policy": "paired-text-edit-high-risk"},
+    "web-reporting-copy": {"section": "accounting-reporting-and-activity-results", "type": "text", "text_contains": "WEB", "edit_policy": "paired-text-edit"},
+    "activity-results-copy": {"section": "accounting-reporting-and-activity-results", "type": "results", "intent": "譲渡会・TNRなどの活動実績数値・報告", "edit_policy": "paired-text-edit-high-risk"},
+
+    "gentle-support-closing-heading": {"section": "gentle-support-closing-message", "type": "text", "text_contains": "いつもの水から、やさしい応援を", "edit_policy": "paired-text-edit"},
+    "one-bottle-next-month-copy": {"section": "gentle-support-closing-message", "type": "text", "intent": "一本が団体の来月をつくるという締めコピー", "edit_policy": "paired-text-edit"},
+
+    "final-natural-water-cta-link-1": {"section": "final-purchase-cta-natural-water", "type": "link", "selector": "[data-ai-name='final-purchase-cta-natural-water-link-1']", "edit_policy": "safe-attribute-edit"},
+    "final-sparkling-cta-link-1": {"section": "final-purchase-cta-sparkling", "type": "link", "selector": "[data-ai-name='final-purchase-cta-sparkling-link-1']", "edit_policy": "safe-attribute-edit"},
+
+    "thank-you-heading": {"section": "thank-you-footer", "type": "text", "text_contains": "ご検討くださり、ありがとうございます", "edit_policy": "paired-text-edit"}
+  }
+}
