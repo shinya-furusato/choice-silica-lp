@@ -1,4 +1,5 @@
 from pathlib import Path
+import html as html_lib
 import json
 import re
 
@@ -6,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 SECTIONS = SRC / "sections"
 AI_MAP_PATH = SRC / "ai-map.json"
+AI_TEXT_MAP_PATH = SRC / "ai-text-map.json"
 
 html = (SRC / "main.html").read_text(encoding="utf-8")
 html = html.replace("{{FONTS_CSS}}", (SRC / "fonts.css").read_text(encoding="utf-8"))
@@ -16,11 +18,59 @@ if AI_MAP_PATH.exists():
     ai_map = json.loads(AI_MAP_PATH.read_text(encoding="utf-8"))
     ai_sections = ai_map.get("sections", {})
 
+ai_text_anchors = {}
+if AI_TEXT_MAP_PATH.exists():
+    ai_text_map = json.loads(AI_TEXT_MAP_PATH.read_text(encoding="utf-8"))
+    ai_text_anchors = ai_text_map.get("anchors", {})
+
 
 def add_attr(tag: str, name: str, value: str) -> str:
     if re.search(rf"\s{re.escape(name)}=", tag):
         return tag
-    return tag[:-1] + f' {name}="{value}">'
+    escaped = html_lib.escape(str(value), quote=True)
+    return tag[:-1] + f' {name}="{escaped}">'
+
+
+def inject_text_anchor(section_html: str, anchor_name: str, anchor: dict) -> str:
+    phrase = anchor.get("text_contains")
+    if not phrase:
+        return section_html
+
+    # Label direct text-bearing elements only. This keeps the Illustrator/PDF
+    # geometry untouched while giving paired SVG/selectable text stable names.
+    tag_pattern = re.compile(
+        r"<(?P<tag>text|tspan|span|h[1-6]|p|div)\b(?P<attrs>[^>]*)>(?P<body>[^<]*"
+        + re.escape(phrase)
+        + r"[^<]*)",
+        re.IGNORECASE,
+    )
+
+    def label(match):
+        opening = f'<{match.group("tag")}{match.group("attrs")}>'
+        opening = add_attr(opening, "data-ai-name", anchor_name)
+        opening = add_attr(opening, "data-ai-role", anchor.get("type", "text-anchor"))
+        opening = add_attr(opening, "data-ai-edit-policy", anchor.get("edit_policy", "paired-text-edit"))
+        return opening + match.group("body")
+
+    return tag_pattern.sub(label, section_html)
+
+
+def inject_link_anchor(section_html: str, anchor_name: str, anchor: dict) -> str:
+    selector = anchor.get("selector", "")
+    m = re.fullmatch(r"\[data-ai-name=['\"]([^'\"]+)['\"]\]", selector)
+    if not m:
+        return section_html
+    generated_name = m.group(1)
+
+    pattern = re.compile(r"<a\b[^>]*\bdata-ai-name=[\"']" + re.escape(generated_name) + r"[\"'][^>]*>")
+
+    def label(match):
+        tag = match.group(0)
+        tag = add_attr(tag, "data-ai-anchor", anchor_name)
+        tag = add_attr(tag, "data-ai-edit-policy", anchor.get("edit_policy", "safe-attribute-edit"))
+        return tag
+
+    return pattern.sub(label, section_html)
 
 
 def inject_ai_metadata(section_html: str, filename: str) -> str:
@@ -57,6 +107,18 @@ def inject_ai_metadata(section_html: str, filename: str) -> str:
             return tag
 
         section_html = re.sub(r"<a\b[^>]*>", label_link, section_html)
+
+    # Third-layer semantic anchors are injected only when the anchor belongs to
+    # this resolved section. Text anchors may appear twice by design (rendered
+    # SVG text + selectable text); both receive the same stable semantic name.
+    section_ai_name = meta.get("ai_name")
+    for anchor_name, anchor in ai_text_anchors.items():
+        if anchor.get("section") != section_ai_name:
+            continue
+        if anchor.get("type") == "link":
+            section_html = inject_link_anchor(section_html, anchor_name, anchor)
+        else:
+            section_html = inject_text_anchor(section_html, anchor_name, anchor)
 
     return section_html
 
