@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "purpose": "Stable, non-visual metadata for AI-assisted LP maintenance. Keep semantic labels conservative; refine them as sections are reviewed.",
+  "sections": {
+    "section-01.html": {"section_id": "page-1-section-1", "ai_name": "section-01", "ai_role": "mechanism"},
+    "section-02.html": {"section_id": "page-1-section-2", "ai_name": "section-02", "ai_role": "content"},
+    "section-03.html": {"section_id": "page-1-section-3", "ai_name": "first-cta-part-1", "ai_role": "cta"},
+    "section-04.html": {"section_id": "page-1-section-4", "ai_name": "first-cta-part-2", "ai_role": "cta"},
+    "section-05.html": {"section_id": "page-1-section-5", "ai_name": "section-05", "ai_role": "content"},
+    "section-06.html": {"section_id": "page-1-section-6", "ai_name": "section-06", "ai_role": "content"},
+    "section-07.html": {"section_id": "page-1-section-7", "ai_name": "section-07", "ai_role": "content"},
+    "section-08.html": {"section_id": "page-1-section-8", "ai_name": "section-08", "ai_role": "content"},
+    "section-09.html": {"section_id": "page-1-section-9", "ai_name": "section-09", "ai_role": "content"},
+    "section-10.html": {"section_id": "page-1-section-10", "ai_name": "section-10", "ai_role": "content"},
+    "section-11.html": {"section_id": "page-1-section-11", "ai_name": "section-11", "ai_role": "content"},
+    "section-12.html": {"section_id": "page-1-section-12", "ai_name": "section-12", "ai_role": "content"},
+    "section-13.html": {"section_id": "page-1-section-13", "ai_name": "section-13", "ai_role": "content"},
+    "section-14.html": {"section_id": "page-1-section-14", "ai_name": "section-14", "ai_role": "content"},
+    "section-15.html": {"section_id": "page-1-section-15", "ai_name": "section-15", "ai_role": "content"},
+    "section-16.html": {"section_id": "page-1-section-16", "ai_name": "section-16", "ai_role": "content"},
+    "section-17.html": {"section_id": "page-1-section-17", "ai_name": "section-17", "ai_role": "content"},
+    "section-18.html": {"section_id": "page-1-section-18", "ai_name": "section-18", "ai_role": "content"},
+    "section-19.html": {"section_id": "page-1-section-19", "ai_name": "final-cta-part-1", "ai_role": "cta"},
+    "section-20.html": {"section_id": "page-1-section-20", "ai_name": "final-cta-part-2", "ai_role": "cta"},
+    "section-21.html": {"section_id": "page-1-section-21", "ai_name": "section-21", "ai_role": "content"}
+  }
+}
