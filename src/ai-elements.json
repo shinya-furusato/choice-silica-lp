@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "purpose": "Second-layer semantic metadata for AI-assisted LP editing. This file describes which DOM elements are safe to target without changing the Illustrator/PDF-derived visual geometry.",
+  "global_roles": {
+    "section_container": {
+      "selector": "section[data-section-id]",
+      "edit_policy": "safe-for-identification",
+      "notes": "Use data-section-id together with src/ai-map.json to locate the intended section."
+    },
+    "heading": {
+      "selector": ".lp-text--heading",
+      "edit_policy": "paired-text-edit",
+      "notes": "Visible copy is commonly duplicated between the SVG text and the .lp-selection-text span. When changing copy, update both representations and preserve positioning/styles unless explicitly asked to redesign."
+    },
+    "selection_text": {
+      "selector": ".lp-selection-text",
+      "edit_policy": "paired-text-edit",
+      "notes": "Do not edit this span alone when a matching SVG <text> exists; it is primarily a selectable/accessibility text layer."
+    },
+    "native_svg_text": {
+      "selector": ".lp-native-text-svg text",
+      "edit_policy": "paired-text-edit",
+      "notes": "This is normally the visually rendered text. Keep it synchronized with the corresponding .lp-selection-text content. Preserve x/y/font/style attributes unless a layout change is requested."
+    },
+    "cta_link": {
+      "selector": "a[href]",
+      "edit_policy": "safe-attribute-edit",
+      "notes": "href/target/rel can be changed without disturbing geometry. Confirm the intended product destination before changing URLs."
+    },
+    "image_asset": {
+      "selector": "image.lp-asset[href]",
+      "edit_policy": "safe-reference-edit",
+      "notes": "Prefer replacing only href when swapping an image. Preserve x/y/width/height/preserveAspectRatio unless resizing or repositioning is explicitly requested."
+    },
+    "vector_geometry": {
+      "selector": "path, clipPath, polygon, polyline, rect, circle, ellipse, line",
+      "edit_policy": "protected",
+      "notes": "Illustrator/PDF-derived geometry. Do not alter for ordinary text, link, SEO, or image-reference changes. Edit only for a specifically requested visual correction."
+    },
+    "section_dimensions": {
+      "selector": "section[style*='--section-ratio'], .lp-visual-layer[viewBox]",
+      "edit_policy": "protected",
+      "notes": "Do not change section ratio/viewBox for ordinary maintenance. These values control visual fidelity."
+    }
+  },
+  "section_edit_profiles": {
+    "happiness-activity-rescue-cat-project": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"},
+    "water-and-giving-cycle": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium", "notes": "Contains diagrams and dense vector artwork; avoid geometry edits unless requested."},
+    "first-purchase-cta-natural-water": {"primary_targets": ["cta_link", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "first-purchase-cta-sparkling-and-transition": {"primary_targets": ["cta_link", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "why-choice-silica-mineral-richness": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"},
+    "silica-age-related-decline": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "high", "notes": "Scientific graph/evidence block. Text and citation edits are safer than vector graph geometry; verify claims before changing factual content."},
+    "natural-water-promise": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"},
+    "natural-minerals-and-silica-75mg": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium", "notes": "Contains quantitative product claims; preserve approved figures unless explicitly changed."},
+    "kuju-source-and-natural-filtration": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"},
+    "expert-column-water-and-minerals": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "daily-water-loss-and-hydration": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium", "notes": "Health-related explanatory copy; do not strengthen claims without evidence."},
+    "doctor-comment-and-visible-support-transition": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "support-purchase-cta": {"primary_targets": ["cta_link", "heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "rescue-activities-behind-the-water": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"},
+    "what-one-bottle-supports": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "support-costs-and-transparency": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium", "notes": "Legal/transparency wording should remain faithful to approved operational facts."},
+    "accounting-reporting-and-activity-results": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "medium", "notes": "Reporting figures and institutional descriptions should be changed only from approved source data."},
+    "gentle-support-closing-message": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"},
+    "final-purchase-cta-natural-water": {"primary_targets": ["cta_link", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "final-purchase-cta-sparkling": {"primary_targets": ["cta_link", "native_svg_text", "selection_text", "image_asset"], "risk": "medium"},
+    "thank-you-footer": {"primary_targets": ["heading", "native_svg_text", "selection_text", "image_asset"], "risk": "low"}
+  },
+  "default_edit_sequence": [
+    "Resolve the requested section through src/ai-map.json.",
+    "Open only that src/sections/section-XX.html file plus src/styles.css when styling is involved.",
+    "Prefer semantic/text/link/image-reference changes over SVG geometry changes.",
+    "For copy changes, synchronize SVG visible text and matching selection text.",
+    "Preserve coordinates, clip paths, viewBox, section ratio, transforms, and paint order unless the request explicitly requires a visual-layout change.",
+    "Do not edit generated index.html directly.",
+    "Commit the source edit and let the GitHub Actions build regenerate index.html.",
+    "Confirm the Build ecforce index.html workflow completed successfully."
+  ]
+}
