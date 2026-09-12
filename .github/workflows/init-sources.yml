@@ -30,5 +30,6 @@ jobs:
             echo "Editable source structure already initialized."
           else
             git commit -m "Initialize editable LP source workflow"
+            git pull --rebase origin main
             git push
           fi
