@@ -1,132 +1,145 @@
 {
-  "version": 2,
-  "purpose": "Stable, non-visual metadata for AI-assisted LP maintenance. Labels are based on the actual LP headings/content and are intended to let AI target the correct section without touching visual geometry.",
-  "sections": {
-    "section-01.html": {
+  "version": 1,
+  "sections": [
+    {
       "section_id": "page-1-section-1",
+      "source": "src/sections/section-01.html",
       "ai_name": "happiness-activity-rescue-cat-project",
       "ai_role": "social-impact-intro",
-      "summary": "しあわせ活動／保護猫プロジェクト。毎日の水を選ぶことが保護活動の応援につながる導入。"
+      "summary_ja": "しあわせ活動と保護猫プロジェクトの導入"
     },
-    "section-02.html": {
+    {
       "section_id": "page-1-section-2",
-      "ai_name": "water-and-giving-cycle",
-      "ai_role": "impact-mechanism",
-      "summary": "『おいしい水と、やさしい循環。』を軸に、商品購入と支援の循環を示す導入ブロック。"
-    },
-    "section-03.html": {
-      "section_id": "page-1-section-3",
+      "source": "src/sections/section-02.html",
       "ai_name": "first-purchase-cta-natural-water",
       "ai_role": "cta",
-      "summary": "最初の商品購入CTA前半。天然水の商品・定期購入導線。"
+      "summary_ja": "最初の購入CTA・天然水"
     },
-    "section-04.html": {
+    {
+      "section_id": "page-1-section-3",
+      "source": "src/sections/section-03.html",
+      "ai_name": "first-purchase-cta-sparkling-and-mineral-transition",
+      "ai_role": "cta-transition",
+      "summary_ja": "最初の購入CTA・炭酸水とミネラル価値への導入"
+    },
+    {
       "section_id": "page-1-section-4",
-      "ai_name": "first-purchase-cta-sparkling-and-transition",
-      "ai_role": "cta",
-      "summary": "最初の商品購入CTA後半。別商品・定期購入導線と『支援のためだけの水、』から商品価値説明へつなぐ部分。"
-    },
-    "section-05.html": {
-      "section_id": "page-1-section-5",
-      "ai_name": "why-choice-silica-mineral-richness",
-      "ai_role": "product-value",
-      "summary": "『支援のためだけの水ではありません。選ばれる理由は、ミネラルの豊かさ。』という商品価値の導入。"
-    },
-    "section-06.html": {
-      "section_id": "page-1-section-6",
+      "source": "src/sections/section-04.html",
       "ai_name": "silica-age-related-decline",
       "ai_role": "silica-education",
-      "summary": "シリカは体内に存在するが加齢とともに減少するとされること、食事や飲み物から補う重要性を示すグラフ説明。"
+      "summary_ja": "加齢に伴うシリカ減少の説明"
     },
-    "section-07.html": {
-      "section_id": "page-1-section-7",
-      "ai_name": "natural-water-promise",
+    {
+      "section_id": "page-1-section-5",
+      "source": "src/sections/section-05.html",
+      "ai_name": "silica-replenishment-and-natural-water",
+      "ai_role": "silica-education",
+      "summary_ja": "食事・飲み物からの補給と天然水への接続"
+    },
+    {
+      "section_id": "page-1-section-6",
+      "source": "src/sections/section-06.html",
+      "ai_name": "natural-water-promise-and-silica",
       "ai_role": "product-benefit",
-      "summary": "『シリカを豊富に含んだ天然水。』とOUR PROMISE。毎日続けられるおいしさ・透明感を訴求。"
+      "summary_ja": "OUR PROMISEと天然水・シリカ価値"
     },
-    "section-08.html": {
-      "section_id": "page-1-section-8",
-      "ai_name": "natural-minerals-and-silica-75mg",
-      "ai_role": "product-feature",
-      "summary": "九重連山由来の自然なミネラル、天然シリカ75mg/L、肌・髪・爪にも含まれるシリカを説明。"
-    },
-    "section-09.html": {
-      "section_id": "page-1-section-9",
+    {
+      "section_id": "page-1-section-7",
+      "source": "src/sections/section-07.html",
       "ai_name": "kuju-source-and-natural-filtration",
       "ai_role": "source-story",
-      "summary": "こだわりの採水地。九重連山の雨雪が地層を通って自然濾過され、ミネラルを含む伏流水になる流れを説明。"
+      "summary_ja": "九重連山の採水地と自然濾過"
     },
-    "section-10.html": {
-      "section_id": "page-1-section-10",
+    {
+      "section_id": "page-1-section-8",
+      "source": "src/sections/section-08.html",
       "ai_name": "expert-column-water-and-minerals",
       "ai_role": "expert-authority",
-      "summary": "Experts’ Columns。専門家視点で、水とシリカなどのミネラルの重要性を解説する導入。"
+      "summary_ja": "専門家による水とミネラルの解説"
     },
-    "section-11.html": {
-      "section_id": "page-1-section-11",
-      "ai_name": "daily-water-loss-and-hydration",
-      "ai_role": "health-education",
-      "summary": "呼吸・汗・尿などで日々失われる水分と、水分・ミネラル全般についての一般的な解説。"
-    },
-    "section-12.html": {
-      "section_id": "page-1-section-12",
-      "ai_name": "doctor-comment-and-visible-support-transition",
+    {
+      "section_id": "page-1-section-9",
+      "source": "src/sections/section-09.html",
+      "ai_name": "doctor-comment-and-support-transition",
       "ai_role": "expert-authority-transition",
-      "summary": "沼田光生医師の専門家パートから『毎日飲む水だから、無理なく続けられる応援に。そして、支援を見える形に。』へ接続。"
+      "summary_ja": "医師コメントから支援導入への接続"
     },
-    "section-13.html": {
-      "section_id": "page-1-section-13",
+    {
+      "section_id": "page-1-section-10",
+      "source": "src/sections/section-10.html",
       "ai_name": "support-purchase-cta",
       "ai_role": "cta",
-      "summary": "保護猫キャラクターと『チョイスシリカを購入して応援する。』の支援購入CTA。"
+      "summary_ja": "支援購入CTA"
     },
-    "section-14.html": {
-      "section_id": "page-1-section-14",
+    {
+      "section_id": "page-1-section-11",
+      "source": "src/sections/section-11.html",
       "ai_name": "rescue-activities-behind-the-water",
       "ai_role": "social-impact-detail",
-      "summary": "『この水の先に、こんな命があります。』保護・譲渡会・TNR・多頭飼育崩壊対応など活動内容を紹介。"
+      "summary_ja": "水の先にある保護活動"
     },
-    "section-15.html": {
-      "section_id": "page-1-section-15",
+    {
+      "section_id": "page-1-section-12",
+      "source": "src/sections/section-12.html",
       "ai_name": "what-one-bottle-supports",
       "ai_role": "donation-use",
-      "summary": "『あなたの一本で支援するもの。』不妊去勢手術など、保護活動に必要な費用と現場の実情を説明。"
+      "summary_ja": "一本が支える費用・用途"
     },
-    "section-16.html": {
-      "section_id": "page-1-section-16",
+    {
+      "section_id": "page-1-section-13",
+      "source": "src/sections/section-13.html",
       "ai_name": "support-costs-and-transparency",
       "ai_role": "transparency",
-      "summary": "初期医療・フード・ノミダニ駆除・譲渡会運営などの支援先と、『支援を見える形に』する透明性の仕組み。弁護士監修を含む。"
+      "summary_ja": "支援を見える形にする透明性説明"
     },
-    "section-17.html": {
-      "section_id": "page-1-section-17",
-      "ai_name": "accounting-reporting-and-activity-results",
+    {
+      "section_id": "page-1-section-14",
+      "source": "src/sections/section-14.html",
+      "ai_name": "reporting-and-activity-results",
       "ai_role": "transparency-reporting",
-      "summary": "会計事務所による確認、寄付額・使い道・活動成果のWEB公開、譲渡会・TNR実績報告。"
+      "summary_ja": "譲渡会・TNR実績とWEB報告"
     },
-    "section-18.html": {
-      "section_id": "page-1-section-18",
+    {
+      "section_id": "page-1-section-15",
+      "source": "src/sections/section-15.html",
       "ai_name": "gentle-support-closing-message",
       "ai_role": "social-impact-closing",
-      "summary": "『いつもの水から、やさしい応援を。』一本が団体の来月をつくるという、支援ストーリーの締め。"
+      "summary_ja": "いつもの水からやさしい応援へ"
     },
-    "section-19.html": {
-      "section_id": "page-1-section-19",
+    {
+      "section_id": "page-1-section-16",
+      "source": "src/sections/section-16.html",
       "ai_name": "final-purchase-cta-natural-water",
       "ai_role": "cta",
-      "summary": "最終購入CTA前半。天然水の商品・定期購入導線。"
+      "summary_ja": "最終購入CTA・天然水"
     },
-    "section-20.html": {
-      "section_id": "page-1-section-20",
+    {
+      "section_id": "page-1-section-17",
+      "source": "src/sections/section-17.html",
       "ai_name": "final-purchase-cta-sparkling",
       "ai_role": "cta",
-      "summary": "最終購入CTA後半。別商品・定期購入導線。"
+      "summary_ja": "最終購入CTA・炭酸水"
     },
-    "section-21.html": {
-      "section_id": "page-1-section-21",
+    {
+      "section_id": "page-1-section-18",
+      "source": "src/sections/section-18.html",
+      "ai_name": "company-philosophy-origin-story",
+      "ai_role": "brand-story",
+      "summary_ja": "できた！の現在と会社の姿勢"
+    },
+    {
+      "section_id": "page-1-section-19",
+      "source": "src/sections/section-19.html",
+      "ai_name": "former-kindergarten-company-story",
+      "ai_role": "brand-story",
+      "summary_ja": "元幼稚園の社屋と活動の物語"
+    },
+    {
+      "section_id": "page-1-section-20",
+      "source": "src/sections/section-20.html",
       "ai_name": "thank-you-footer",
       "ai_role": "closing",
-      "summary": "『ご検討くださり、ありがとうございます。』で締める最終フッター。"
+      "summary_ja": "ご検討への感謝とフッター"
     }
-  }
+  ]
 }
