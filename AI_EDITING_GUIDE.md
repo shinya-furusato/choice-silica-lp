@@ -1,21 +1,30 @@
 # AI Editing Guide
 
-このLPはIllustrator/PDFの見た目を忠実に再現するHTMLです。AI修正では見た目の再現性を最優先し、SVG座標を不用意に変更しません。
+This repository is organized so that future LP revisions can be made safely from editable source files instead of editing the generated `index.html` directly.
 
-## 編集手順
-1. `src/ai-map.json` で対象セクションを特定する。
-2. `src/ai-elements.json` で安全に編集できる要素か確認する。
-3. 必要なら `src/ai-text-map.json` のアンカーを使う。
-4. `src/sections/section-XX.html` または `src/main.html` を編集する。
-5. `python build/build.py` で `index.html` を再生成する。
+## Source of truth
 
-## 優先順位
-テキスト・URL・画像参照 → 限定CSS → 限定SVG属性 → ベクター座標の順。最後の2つは明示的な必要がある場合のみ。
+- `src/main.html`: page shell and section placeholders
+- `src/sections/section-01.html` ... `section-20.html`: editable section sources
+- `src/styles.css`: shared visual and interaction adjustments
+- `src/fonts.css`: embedded font data
+- `src/ai-map.json`: section-level semantic map
+- `src/ai-elements.json`: editable/protected element policy
+- `src/ai-text-map.json`: semantic anchors for text and CTA edits
+- `build/build.py`: regenerates `index.html`
 
-## 今回の固定修正
-- クリック可能要素では通常の手カーソルではなく、ピンクの肉球カーソルを表示。
-- CTA右端の白いヘアライン対策として、最初のCTA（section 02-03）と最終CTA（section 16-17）のSVG表示幅を2pxだけ拡張。
+## Editing rules
 
-## 注意
-- `index.html` を直接編集せず、必ず `src/` を編集してビルドする。
-- 科学・健康・数値・専門家コメントは承認済み原稿に基づく場合のみ変更する。
+1. Prefer text, URL, or image-reference edits before CSS/SVG changes.
+2. Preserve SVG geometry (`path`, `clipPath`, `transform`, coordinates, `viewBox`) unless a layout correction explicitly requires it.
+3. If visible SVG text has a paired selectable text layer, update both.
+4. For CTA URL changes, edit the link target only unless copy/design changes are also requested.
+5. For image swaps, change the referenced asset path without altering geometry when possible.
+6. Scientific, health, and numeric claims require approved source material before changing.
+7. Do not edit generated `index.html` as the long-term source. Rebuild it from `src/` with `python build/build.py`.
+
+## Current approved visual fixes
+
+- Paw cursor is used on clickable links/buttons.
+- CTA right-edge white seam correction is included in the approved source.
+- Current structure contains 20 sections.
