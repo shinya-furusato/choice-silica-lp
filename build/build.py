@@ -41,5 +41,27 @@ text, count = qa3_pattern.subn(qa3_answer, text, count=1)
 if count != 1:
     raise RuntimeError("Q&A third answer block was not found exactly once")
 
+# The third answer is now three lines instead of six. Pull the following
+# separator and company-story block upward by the removed three-line height
+# (52.644 SVG units) and close the same amount of section space so the next
+# section follows naturally, matching the approved compact reference.
+qa_spacing_patch = """
+<style id="qa3-spacing-fix">
+[data-section-id="page-1-section-18"] {
+  margin-bottom: -17.568% !important;
+}
+[data-section-id="page-1-section-18"] [data-paint-order="9092"],
+[data-section-id="page-1-section-18"] [data-paint-order="1582"],
+[data-section-id="page-1-section-18"] #lp-heading-page-1-native-82,
+[data-section-id="page-1-section-18"] #lp-heading-page-1-native-83,
+[data-section-id="page-1-section-18"] #lp-heading-page-1-native-84,
+[data-section-id="page-1-section-18"] #lp-heading-page-1-native-85,
+[data-section-id="page-1-section-18"] #lp-heading-page-1-native-86 {
+  transform: translateY(-17.568cqw) !important;
+}
+</style>
+"""
+text = text.replace("</head>", qa_spacing_patch + "\n</head>", 1)
+
 (ROOT / "index.html").write_text(text, encoding="utf-8")
 print(f"Built {ROOT / 'index.html'}")
